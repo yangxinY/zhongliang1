@@ -197,6 +197,8 @@ $(".of-go").on("mouseenter",function(){
     },500)
     .end()
     .parents(".common-a").siblings(".common-a").find(".frame-a").stop();
+    $(this).parents(".common-a").find(".frame-a-1").stop()
+    console.log($(this),$(this).parents(".common-a").find(".frame-a-1"))
     // console.log($(this),$(this).parents(".common-a").siblings(".common-a"))
 })
 
@@ -209,3 +211,56 @@ $(".of-go").on("mouseleave",function(){
     .end()
     .parents(".common-a").siblings(".common-a").find(".frame-a").stop();
 })
+
+//全球购的cont-4
+$(".of-go-1").on("mouseenter",function(){
+    $(this).children("frame-a-1").stop().animate({
+        left:400,
+        display:"block",
+        opacity:.5
+    },500)
+})
+$(".of-go-1").on("mouseleave",function(){
+    $(this).children("frame-a-1").stop().animate({
+        left:-150,
+        display:"none",
+        opacity:0
+    },0)
+})
+
+
+// 每日劲爆品
+var swiper = new Swiper('.swiper-container', {
+    autoplay:{
+        delay:1000
+    },
+    loop: true,
+    loopFillGroupWithBlank: true,
+    autoplayDisableOnInteraction: true,
+    pagination: {
+    el:'.swiper-pagination',
+    clickable: true,
+
+    },
+    navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+    },
+});
+swiper.el.onmouseover = function(){
+    swiper.autoplay.stop();
+}
+swiper.el.onmouseout = function(){
+    swiper.autoplay.start();
+}
+//鼠标滑过pagination控制swiper切换
+for(i=0;i<swiper.pagination.bullets.length;i++){
+    swiper.pagination.bullets[i].index=i
+    swiper.pagination.bullets[i].onmouseover=function(){
+        swiper.slideTo(this.index);
+    };
+}
+
+
+// 全球购
+$()
