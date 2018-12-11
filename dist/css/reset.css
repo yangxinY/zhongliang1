@@ -1,0 +1,58 @@
+@charset "UTF-8";
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img, input, figure, figcaption {
+  margin: 0;
+  padding: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 16px;
+  font-weight: normal; }
+
+ul, ol, li {
+  list-style: none; }
+
+b, strong {
+  font-weight: normal; }
+
+em, i {
+  font-style: normal; }
+
+a, u {
+  text-decoration: none; }
+
+img {
+  border: 0;
+  display: block; }
+
+input {
+  outline: none; }
+
+input, button, a {
+  outline: 0 none !important; }
+
+.clearfix:after {
+  clear: both;
+  content: '';
+  font-size: 0;
+  display: block;
+  visibility: hidden;
+  height: 0; }
+
+html, body {
+  height: 100%;
+  width: 100%; }
+
+a, body {
+  text-decoration: none;
+  color: #606060;
+  color: #666; }
+
+body {
+  color: #606060;
+  font: 12px/150% Arial, Tahoma,"宋体"; }
+
+h2 {
+  height: 46px;
+  font-weight: normal;
+  line-height: 46px;
+  border-bottom: 2px solid #4bae00;
+  overflow: hidden; }
