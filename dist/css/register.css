@@ -1,0 +1,165 @@
+@charset "UTF-8";
+.reg-content {
+  width: 1000px;
+  margin: 0 auto;
+  background-color: #fff; }
+
+header {
+  width: 1000px;
+  height: 96px;
+  margin: 0 auto;
+  padding-top: 8px;
+  border-bottom: 2px solid #097909; }
+  header .logo-a {
+    width: 210px;
+    height: 80px;
+    float: left;
+    padding-left: 10px; }
+  header .welcom {
+    float: left;
+    margin: 20px;
+    font-size: 20px;
+    line-height: 36px;
+    color: #333333;
+    font-family: "Microsoft YaHei" !important; }
+  header .right {
+    float: right;
+    margin: 20px;
+    font-size: 16px;
+    line-height: 36px; }
+    header .right p {
+      color: #999999; }
+    header .right a {
+      cursor: pointer;
+      color: #333333; }
+
+.about_wrap {
+  height: 138px;
+  padding: 25px 0 30px 0;
+  border-top: 2px solid #3ea600;
+  background: #fff; }
+  .about_wrap .top-a {
+    height: 22px;
+    line-height: 22px;
+    color: #989898;
+    overflow: hidden;
+    margin-left: 300px; }
+    .about_wrap .top-a a {
+      display: block;
+      float: left;
+      text-align: center;
+      font-size: 14px; }
+    .about_wrap .top-a a:hover {
+      text-decoration: underline; }
+    .about_wrap .top-a span {
+      float: left;
+      margin: 5px 20px 0;
+      display: inline-block;
+      background: #989898;
+      width: 1px;
+      height: 12px; }
+  .about_wrap .lit-logo {
+    width: 790px;
+    height: 88px;
+    margin: 28px auto 0; }
+    .about_wrap .lit-logo .left {
+      float: left;
+      width: 200px;
+      height: 50px; }
+      .about_wrap .lit-logo .left img {
+        width: 100%;
+        height: 50px; }
+    .about_wrap .lit-logo .right {
+      float: left;
+      width: 502px;
+      height: 88px; }
+      .about_wrap .lit-logo .right .rig-1 {
+        float: left;
+        height: 22px;
+        line-height: 22px;
+        color: #989898;
+        overflow: hidden; }
+      .about_wrap .lit-logo .right .rig-a-3 img {
+        float: left;
+        width: 20px;
+        height: 20px; }
+      .about_wrap .lit-logo .right .rig-a-3 a {
+        display: inline-block;
+        float: left; }
+  .about_wrap .bottom-x {
+    padding-left: 500px;
+    position: relative; }
+
+main {
+  width: 100%;
+  height: 500px;
+  padding: 20px 0px 10px 0px;
+  position: relative; }
+  main .main-bg {
+    position: absolute;
+    top: 20px;
+    left: 0px;
+    z-index: 1; }
+    main .main-bg img {
+      position: absolute;
+      top: 10px;
+      left: 0px;
+      z-index: 1; }
+  main .main-content {
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    z-index: 10; }
+    main .main-content .mci-content {
+      width: 280px;
+      padding: 10px 10px;
+      border: #fff 1px solid;
+      margin: 3px auto;
+      height: 445px; }
+      main .main-content .mci-content .mcicont-input {
+        height: 54px;
+        position: relative; }
+        main .main-content .mci-content .mcicont-input input {
+          width: 252px;
+          height: 23px;
+          padding: 5px 13px;
+          border: #ccc 1px solid;
+          font-size: 14px; }
+        main .main-content .mci-content .mcicont-input #yanz {
+          float: left;
+          width: 100px; }
+        main .main-content .mci-content .mcicont-input #send-yz {
+          float: right;
+          width: 120px;
+          height: 34px;
+          background: #43a41b;
+          border: 0;
+          font-size: 12px;
+          font-family: 'Î¢ÈíÑÅºÚ';
+          color: #fff;
+          margin-left: 25px;
+          cursor: pointer;
+          float: left;
+          text-align: center; }
+    main .main-content .mciont-line a {
+      color: #419bf9;
+      font-size: 12px;
+      cursor: pointer; }
+    main .main-content .mcicont-btn #quick-reg {
+      width: 277px;
+      height: 36px;
+      border: 0;
+      color: #fff;
+      text-align: center;
+      line-height: 36px;
+      cursor: pointer;
+      background-color: #43a41b;
+      font-size: 18px; }
+    main .main-content .intro-m {
+      height: 16px;
+      line-height: 16px;
+      padding-top: 14px;
+      float: left;
+      color: #43a41b;
+      cursor: pointer;
+      font-size: 14px; }

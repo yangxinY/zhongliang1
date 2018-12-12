@@ -1411,7 +1411,7 @@
     </div>
 
     <!--  进口食品-->
-    <div class="outer-1 common-a">
+    <div class="outer-1 common-a" id="outer-a1">
         <div class="width">
             <div class="of-left">
                 <div class="of-top">
@@ -1600,7 +1600,7 @@
 
 
     <!-- 生鲜日配 -->
-    <div class="outer-2 common-a">
+    <div class="outer-2 common-a" id="outer-a2">
             <div class="width">
                 <div class="of-left">
                     <div class="of-top">
@@ -1788,7 +1788,7 @@
         </div>
 
     <!-- 时令果蔬 -->
-    <div class="outer-3 common-a">
+    <div class="outer-3 common-a" id="outer-a3">
             <div class="width">
                 <div class="of-left">
                     <div class="of-top">
@@ -1976,7 +1976,7 @@
         </div>
 
     <!-- 奶制品 -->
-    <div class="outer-4 common-a">
+    <div class="outer-4 common-a" id="outer-a4">
             <div class="width">
                 <div class="of-left">
                     <div class="of-top">
@@ -2181,7 +2181,7 @@
         </div>
 
     <!-- 休闲保健 -->
-    <div class="outer-5 common-a">
+    <div class="outer-5 common-a" id="outer-a5">
             <div class="width">
                 <div class="of-left">
                     <div class="of-top">
@@ -2384,7 +2384,7 @@
         </div>
 
     <!-- 酒饮冲调 -->
-    <div class="outer-6 common-a">
+    <div class="outer-6 common-a" id="outer-a6">
             <div class="width">
                 <div class="of-left">
                     <div class="of-top">
@@ -2587,7 +2587,7 @@
         </div>
 
     <!-- 粮油副食 -->
-    <div class="outer-7 common-a">
+    <div class="outer-7 common-a" id="outer-a7">
             <div class="width">
                 <div class="of-left">
                     <div class="of-top">
@@ -2789,7 +2789,7 @@
         </div>
 
     <!-- 母婴玩具 -->
-    <div class="outer-8 common-a">
+    <div class="outer-8 common-a" id="outer-a8">
             <div class="width">
                 <div class="of-left">
                     <div class="of-top">
@@ -2977,7 +2977,7 @@
         </div>
 
     <!-- 个户清洁 -->
-    <div class="outer-9 common-a">
+    <div class="outer-9 common-a" id="outer-a9">
             <div class="width">
                 <div class="of-left">
                     <div class="of-top">
@@ -3179,7 +3179,7 @@
         </div>
 
     <!-- 家居家电 -->
-    <div class="outer-10 common-a">
+    <div class="outer-10 common-a" id="outer-a10">
             <div class="width">
                 <div class="of-left">
                     <div class="of-top">
@@ -3367,7 +3367,7 @@
         </div>
 
     <!-- 包邮直送 全球购 -->
-    <div class="outer-11 common-a">
+    <div class="outer-11 common-a" id="outer-a11">
         <div class="width">
             <div class="of-left">
                 <div class="of-top">
@@ -3909,17 +3909,20 @@
             <div class="left">
                 <img src="http://pic3.womai.com/upload/backend/2018/08/31/10/1535680953978.png" alt="">
             </div>
-            <div class="right">
+            <div class="center">
                 <div class="sea-put">
                     <input type="text" class="search-1" id="btn" value="" placeholder="12.12主会场 畅领最高55元神券" >
                     <i class="fa fa-search fa-lg" aria-hidden="true"></i>
                     <button>搜索</button>
                 </div>
             </div>
+            <div class="right">
+                <img src="./img/top-a.png" alt="">
+            </div>
         </div>
     </div>
 
-    <!-- 右侧固定置顶框 -->
+    <!-- 右侧固定框 -->
     <div class="vm-toolbar">
         <div class="vm-toolbar-top">
             <i class="fa fa-cart-plus" aria-hidden="true"></i><i></i>
@@ -3927,14 +3930,42 @@
             <span>0</span>
         </div>
         <div class="vm-toolbar-footer">
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-            <i class="fa fa-jpy" aria-hidden="true"></i>
-            <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
-            <i class="fa fa-qrcode" aria-hidden="true"></i>
-            <i class="fa fa-angle-down fa-3x" aria-hidden="true"></i>
+            <li class="vm-ab"><a href="#"></a>
+                <i class="fa fa-star-o fa-lg fa-a1" aria-hidden="true"></i>
+                <span>账户中心</span>
+            </li>
+            <li class="vm-ab"><a href="#"></a>
+                <i class="fa fa-jpy fa-lg fa-a1" aria-hidden="true"></i>
+                <span>账户充值</span>
+            </li>
+            <li class="vm-ab"><a href="#"></a>
+                <i class="fa fa-qrcode fa-lg fa-a1" aria-hidden="true"></i>
+                <span class="ewm-a"><img src="http://pic2.womai.com/upload/backend/2016/04/16/23/1460821684796.jpg" alt="">扫码有礼</span>
+            </li>
+            <li class="vm-ab"><a href="#"></a>
+                <i class="fa fa-angle-down fa-lg fa-a1 fa-a4" aria-hidden="true"></i>
+                <span>点击置顶</span>
+            </li>
         </div>
     </div>
 
+
+    <!-- 根据scroll定位可视区出现的内容 -->
+    <div class="client-a">
+        <ul>
+            <li class="cli-a1"><a href="#outer-a1"><b>进口食品</b></a></li>
+            <li class="cli-a2"><a href="#outer-a2"><b>生鲜日配</b></a></li>
+            <li class="cli-a3"><a href="#outer-a3"><b>休闲保健</b></a></li>
+            <li class="cli-a4"><a href="#outer-a4"><b>酒饮冲调</b></a></li>
+            <li class="cli-a5"><a href="#outer-a5"><b>时令果蔬</b></a></li>
+            <li class="cli-a6"><a href="#outer-a6"><b>奶制品</b></a></li>
+            <li class="cli-a7"><a href="#outer-a7"><b>粮油副食</b></a></li>
+            <li class="cli-a8"><a href="#outer-a8"><b>母婴玩具</b></a></li>
+            <li class="cli-a9"><a href="#outer-a9"><b>个户清洁</b></a></li>
+            <li class="cli-a10"><a href="#outer-a10"><b>家具家电</b></a></li>
+            <li class="cli-a11"><a href="#outer-a11"><b>全球购</b></a></li>
+        </ul>
+    </div>
 
     <script src="./js/jquery-3.3.1.js"></script>
     <script src="https://www.swiper.com.cn/dist/js/swiper.min.js"></script>

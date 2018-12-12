@@ -106,10 +106,10 @@ $(".swiper-container").on("mouseout",function(){
 })
 
 //进口食品
-// $(".special-a").css({
-//     height:37,
-//     "border-bottom":"2px solid #a1c0f6"
-// })
+$(".special-a").css({
+    height:37,
+    "border-bottom":"2px solid #a1c0f6"
+})
 $(".special-a").on("mouseover",function(){
     $(this).css({
         height:37,
@@ -235,11 +235,11 @@ var swiper = new Swiper('.swiper-container', {
         delay:1500
     },
     loop: true,
-    // loopFillGroupWithBlank: true,
-    // autoplayDisableOnInteraction: true,
+    loopFillGroupWithBlank: true,
+    autoplayDisableOnInteraction: true,
     pagination: {
     el:'.swiper-pagination',
-    // clickable: true,
+    clickable: true,
 
     },
     navigation: {
@@ -247,29 +247,103 @@ var swiper = new Swiper('.swiper-container', {
     prevEl: '.swiper-button-prev',
     },
 });
-swiper.el.onmouseover = function(){
-    swiper.autoplay.stop();
-  }
-swiper.el.onmouseout = function(){
-    swiper.autoplay.start();
-}
-//鼠标滑过pagination控制swiper切换
-for(i=0;i<swiper.pagination.bullets.length;i++){
-    swiper.pagination.bullets[i].index=i
-    swiper.pagination.bullets[i].onmouseover=function(){
-        swiper.slideTo(this.index);
-    };
-}
+// swiper.el.onmouseover = function(){
+//     swiper.autoplay.stop();
+//   }
+// swiper.el.onmouseout = function(){
+//     swiper.autoplay.start();
+// }
+// //鼠标滑过pagination控制swiper切换
+// for(i=0;i<swiper.pagination.bullets.length;i++){
+//     swiper.pagination.bullets[i].index=i
+//     swiper.pagination.bullets[i].onmouseover=function(){
+//         swiper.slideTo(this.index);
+//     };
+// }
 
 
 // 顶部弹出框
     //绑定滚动条事件
     $(window).on("scroll",function(){
-        console.log(1)
+        // console.log(1)
         var sTop=$(this).scrollTop();
         if(sTop>700){
             $(".top-form").css({
+                // "top":0,
+                "position":"fixed",
                 "display":"block"
-            })
+            },500)
+        }else{
+            $(".top-form").css({
+                // "top":-92,
+                "display":"none"
+            },500)
         }
     })
+
+    // console.log(1)
+//右侧固定栏
+$(".vm-ab").on("mouseover",function(){
+    // console.log(1)
+    $(this).find("span").stop().animate({
+        "display":"block",
+        "right":34
+    },300)
+})
+$(".vm-ab").on("mouseout",function(){
+    // console.log(2)
+    $(this).find("span").stop().css({
+        "right":-138
+    })
+})
+
+$(".fa-qrcode").on("mouseover",function(){
+    $(this).siblings("span").stop().fadeIn().css({
+        "display":"block",
+        "right":34
+    })
+})
+$(".fa-qrcode").on("mouseout",function(){
+    // console.log(2)
+    $(this).find("span").stop().fadeOut().css({
+        "right":-138
+    })
+})
+
+
+// 点击置顶
+$(function(){
+    $(".fa-a4").on("click",function(){
+        $("html,body").animate({scrollTop:0},500);
+    })
+})
+
+
+
+// 左侧鼠标移入移出背景变化
+$(function(){
+    $(".client-a li").on("mouseenter",function(){
+        // console.log(1)
+        $(this).css({
+            "background":"#3ea600"
+        })
+        $(this).find("b").css({
+            color:"#fff"
+        })
+    })
+    $(".client-a li").on("mouseleave",function(){
+        // console.log(1)
+        $(this).css({
+            "background":"#fff"
+        })
+        $(this).find("b").css({
+            color:"#333"
+        })
+    })
+})
+// $(function(){
+//     $(".cli-a1").on("click",function(){
+//         // console.log(2)       
+//         $("outer-1").animate({clientTop:200},500)
+//     })
+// })

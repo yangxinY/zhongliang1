@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>瀑布流</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/zhongliang.css">
+    <link rel="stylesheet" href="./css/list.css">
+    <link rel="stylesheet" href="./public/font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./public/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.swiper.com.cn/dist/css/swiper.min.css">
+    <style>
+        .article {
+  display: block;
+  margin: 0 0 30px 0;
+  padding: 12px;
+  background: white;
+  border-radius: 3px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  transition: all 220ms;
+}
+.article:hover {
+  box-shadow: 0px 2px 3px 1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  transition: all 220ms;
+}
+.article > img {
+  display: block;
+  width: 100%;
+  margin: 0 0 24px 0;
+}
+.article h2 {
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin: 0 0 12px 0;
+}
+ 
+.wall {
+  display: block;
+  position: relative;
+}
+.wall-column {
+  display: block;
+  position: relative;
+  width: 25%;
+  float: left;
+  padding: 0 12px;
+  box-sizing: border-box;
+}
+@media (max-width: 640px) {
+  .wall-column {
+    width: 50%;
+  }
+}
+@media (max-width: 480px) {
+  .wall-column {
+    width: auto;
+    float: none;
+  }
+}          
+    </style>
+</head>
+<body>
+    <!-- 最顶部 -->
+    <div class="sy-top">
+            <div id="top-pho1">
+                <img src="http://pic1.womai.com/upload/backend/2018/11/30/17/1543568519495.jpg" alt="" style="width:1349px">
+            </div>
+            <div id="top-pho2">
+                <img src="http://pic2.womai.com/upload/backend/2018/11/30/16/1543565149804.jpg" alt="">
+            </div>
+    </div>
+    <!-- nav -->
+    <div class="outter-box">        
+        <div class="width">
+            <div class="lc-top-left">
+                <p>
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <span>当前城市:</span>
+                    <span class="loc-er"><a href="">长沙<b class="fa fa-angle-down"></b></a></span>              
+                </p> 
+            </div>
+            <div class="log-res">
+                <p>
+                    <b>hi，欢迎来我买网！</b>
+                    <span class="login-top"><a href="#">登录</a></span>
+                    <span class="register-top"><a href="#">注册</a></span>
+                </p>
+            </div>
+            <div class="mine-serve">
+                <ul>
+                    <li><a href="#">我的账户<b class="fa fa-angle-down"></b></a></li>
+                    <li><a href="#"><p class="fa fa-cart-plus"></p> 购物车0件</a></li>
+                    <li class="line line-in-a"></li>
+                    <li><a href="#">客户服务<b class="fa fa-angle-down"></b></a></li>
+                    <li class="line line-in-b"></li>
+                    <li><a href="#">企业购</a></li>
+                    <li class="line line-in-c"></li>
+                    <li class="icon-nav icon-1"><img src="./img/icbc.png" alt=""></li>
+                    <li class="icon-nav icon-2"><img src="./img/zhongxin.png" alt=""></li>
+                </ul>
+            </div>   
+        </div>  
+    </div>
+
+    <!-- 搜索导航 -->
+    <header>
+        <div class="width">
+            <div class="logo">
+                <img src="http://pic3.womai.com/upload/backend/2018/08/31/10/1535680953978.png" alt="">
+            </div>
+            <div class="egg-pho">
+                <img src="http://pic2.womai.com/upload/backend/2017/10/11/11/1507693295073.jpg" alt="">
+            </div>
+            <div class="search-wrap">
+                <div class="search-top">
+                    <div class="sea-put">
+                        <input type="text" class="search-1" id="btn" value="" placeholder="12.12主会场 畅领最高55元神券" >
+                        <i class="fa fa-search fa-lg" aria-hidden="true"></i>
+                        <button>搜索</button>
+                    </div>
+                    <p><a href="#">高级搜索</a></p>
+                </div>
+                <div class="search-b">
+                    <li><a href="#">大米</a></li>
+                    <li><a href="#">面粉</a></li>
+                    <li><a href="#">饼干</a></li>
+                    <li><a href="#">每日坚果</a></li>
+                    <li><a href="#">牛奶</a></li>
+                    <li><a href="#">吓人</a></li>
+                </div>
+            </div>
+            <div class="ewm-pho">
+                <img src="http://pic2.womai.com/upload/backend/2017/04/25/14/1493100962866.jpg" alt="">
+            </div>
+        </div>
+    </header>
+
+    <!-- 商品分类 -->
+    <div class="main-name-wrap">
+        <div class="width">
+            <div class="head">
+                <p>全部商品分类</p>
+            </div>
+            <ul class="main-wrap">
+                <li><a href="#">团购</a></li>
+                <li><a href="#">每日鲜</a></li>
+                <li><a href="#">我买酒</a></li>
+                <li><a href="#">我买必选</a></li>
+                <li><a href="#">安心享</a></li>
+                <li><a href="#">包邮直送</a></li>
+                <li><a href="#">全球购</a></li>
+                <li><a href="#">三同专区</a></li>
+            </ul>
+            <div class="shop-car">
+                <div id="carlist">
+                    <i class="fa fa-cart-plus fa-2x" aria-hidden="true"></i>
+                    <span class="shop-num">0</span>
+                </div>
+                <p>购物车</p>
+                <i class="fa fa-caret-down fa-lg" aria-hidden="true"></i> 
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 商品列表 -->
+    <!-- <div class="width"> -->
+        <!-- <div class="goods-list"> -->
+            <!-- <div class="goods-detail">
+                <div class="good-image">
+                    <img src="https://s10.mogucdn.com/mlcdn/c45406/181127_03e0d6l4jgdf2fcgg25f1ed6kee2k_588x784.jpg" alt="">
+                </div>           
+                <div class="good-title">
+                    <p>秋冬新款韩版气质小个子宽松茧型呢子大衣中长款西装领纯色毛呢外套女</p>
+                </div>
+                <div class="good-line"></div>
+                <div class="good-box">
+                    <div class="good-price">
+                        <span>￥149</span>
+                    </div>
+                    <div class="good-inform">
+                        <i>800</i>
+                    </div>
+                </div>
+                <button id="btn">加入购物车</button>
+            </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+   
+    
+    <div class="wall">
+            <a class="wall-item" href="#">
+              <img src="http://s3.mogucdn.com/mlcdn/776a41/181210_19e8a30d390f086jh78h0jfcd90l3_750x1125.jpg_320x999.jpg">
+              <h2>wall-item 1</h2>
+            </a>
+           
+            <a class="wall-item" href="#">
+              <img src="http://s3.mogucdn.com/mlcdn/776a41/181210_19e8a30d390f086jh78h0jfcd90l3_750x1125.jpg_320x999.jpg">
+              <h2>wall-item 2</h2>
+            </a>
+           
+            <a class="wall-item" href="#">
+              <img src="http://s3.mogucdn.com/mlcdn/776a41/181210_19e8a30d390f086jh78h0jfcd90l3_750x1125.jpg_320x999.jpg">
+              <h2>wall-item 3</h2>
+            </a>
+            <a class="wall-item" href="#">
+                    <img src="http://s3.mogucdn.com/mlcdn/776a41/181210_19e8a30d390f086jh78h0jfcd90l3_750x1125.jpg_320x999.jpg">
+                    <h2>wall-item 1</h2>
+                  </a>
+                 
+                  <a class="wall-item" href="#">
+                    <img src="http://s3.mogucdn.com/mlcdn/776a41/181210_19e8a30d390f086jh78h0jfcd90l3_750x1125.jpg_320x999.jpg">
+                    <h2>wall-item 2</h2>
+                  </a>
+                 
+                  <a class="wall-item" href="#">
+                    <img src="http://s3.mogucdn.com/mlcdn/776a41/181210_19e8a30d390f086jh78h0jfcd90l3_750x1125.jpg_320x999.jpg">
+                    <h2>wall-item 3</h2>
+                  </a>
+                  <a class="wall-item" href="#">
+                        <img src="http://s3.mogucdn.com/mlcdn/776a41/181210_19e8a30d390f086jh78h0jfcd90l3_750x1125.jpg_320x999.jpg">
+                        <h2>wall-item 1</h2>
+                      </a>
+                     
+                      <a class="wall-item" href="#">
+                        <img src="http://s3.mogucdn.com/mlcdn/776a41/181210_19e8a30d390f086jh78h0jfcd90l3_750x1125.jpg_320x999.jpg">
+                        <h2>wall-item 2</h2>
+                      </a>
+                     
+                      <a class="wall-item" href="#">
+                        <img src="http://s3.mogucdn.com/mlcdn/776a41/181210_19e8a30d390f086jh78h0jfcd90l3_750x1125.jpg_320x999.jpg">
+                        <h2>wall-item 3</h2>
+                      </a>
+          </div>         
+    
+    
+    <!-- footer -->
+    <div class="about_wrap">
+        <div class="width">
+            <div class="top-a">
+                <a href="#">关于我们</a>
+                <span></span>
+                <a href="#">免责条款</a>
+                <span></span>
+                <a href="#">中粮集团</a>
+                <span></span>
+                <a href="#">友情链接</a>
+                <span></span>
+                <a href="#">搜索热词</a>
+                <span></span>
+                <a href="#">客服电话:400-005-5678</a></li>
+            </div>
+            <div class="lit-logo">
+                <div class="left">
+                    <img src="http://pic2.womai.com/upload/backend/2018/04/25/18/1524653210041.png" alt="">
+                </div>
+                <div class="right">
+                    <div class="rig-1">Copyright©2009-2018  womai.com.hk All Rights Reserved 中粮海优（北京）有限公司版权所有</div>
+                    <div class="rig-1">中粮海优（北京）有限公司 北京市朝阳区朝阳门南大街8号18F-09室</div>
+                    <div class="rig-1 rig-a-3"><img src="./img/police.png" alt=""> <a>京公网安备 11010102000458号   京ICP备 13003995号  </a></div>
+                    <div class="rig-1">营业执照（统一社会信用代码）91110000055590239L  食品经营许可证：JY11105020028185</div>
+                </div>
+            </div>
+            <div class="bottom-x">
+                <img src="./img/bottom.png" alt="">
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="https://www.swiper.com.cn/dist/js/swiper.min.js"></script>
+    <script src="dist/jquery.min.js"></script>
+    <script src="dist/jaliswall.js"></script>   
+    <script src="./js/zhongliang.js"></script>
+    <script src="./js/lunbo.js"></script>
+    <script src="./js/list.js"></script>
+</body>
+</html>

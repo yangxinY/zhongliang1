@@ -1114,39 +1114,42 @@ header {
         text-decoration: underline; }
 
 .body {
-  position: relative; }
+  position: relative;
+  height: 100%; }
 
 .top-form {
+  z-index: 200;
   display: none;
   position: absolute;
-  left: -92px;
+  left: 0px;
   top: 0;
   width: 100%;
-  height: 92px; }
+  height: 82px;
+  background: #fff; }
   .top-form .left {
     float: left;
     width: 220px;
     height: 80px;
-    margin: 5px 80px; }
+    margin: 5px 100px; }
     .top-form .left img {
       width: 210px;
       height: 80px; }
-  .top-form .right {
+  .top-form .center {
     float: left;
     margin-top: 20px; }
-    .top-form .right .sea-put {
+    .top-form .center .sea-put {
       position: relative;
       float: left;
       width: 584px;
       height: 38px;
       border: 2px solid #c30000; }
-      .top-form .right .sea-put .search-1 {
+      .top-form .center .sea-put .search-1 {
         position: relative;
         width: 450px;
         height: 37px;
         border: none;
         margin-left: 30px; }
-      .top-form .right .sea-put .fa-search {
+      .top-form .center .sea-put .fa-search {
         display: inline-block;
         position: absolute;
         left: 5px;
@@ -1155,7 +1158,7 @@ header {
         z-index: 1;
         margin: 7px;
         font-weight: 100; }
-      .top-form .right .sea-put button {
+      .top-form .center .sea-put button {
         float: right;
         width: 100px;
         height: 38px;
@@ -1164,3 +1167,119 @@ header {
         background-color: #c30000;
         border: none;
         cursor: pointer; }
+  .top-form .right {
+    float: left;
+    width: 110px;
+    height: 60px;
+    margin-top: 20px;
+    margin-left: 60px; }
+
+.vm-toolbar {
+  width: 34px;
+  height: 100%;
+  z-index: 1000;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: #000;
+  position: fixed;
+  color: #fff;
+  font-size: 14px; }
+  .vm-toolbar .vm-toolbar-top {
+    position: absolute;
+    right: 0;
+    top: 10%;
+    width: 50%;
+    height: 108px;
+    margin-top: 10%;
+    padding: 8px;
+    overflow: hidden; }
+    .vm-toolbar .vm-toolbar-top i {
+      margin-bottom: 2px; }
+    .vm-toolbar .vm-toolbar-top span {
+      display: block;
+      margin-top: 3px;
+      width: 16px;
+      height: 16px;
+      line-height: 16px;
+      text-align: center;
+      background: #3ea600;
+      border-radius: 20%; }
+  .vm-toolbar .vm-toolbar-top:hover {
+    background: #3ea600; }
+    .vm-toolbar .vm-toolbar-top:hover span {
+      background: #000; }
+  .vm-toolbar .vm-toolbar-footer {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    text-align: center; }
+    .vm-toolbar .vm-toolbar-footer li {
+      position: relative; }
+      .vm-toolbar .vm-toolbar-footer li i {
+        width: 100%;
+        height: 34px;
+        line-height: 34px;
+        display: block; }
+      .vm-toolbar .vm-toolbar-footer li i:hover {
+        background: #3ea600; }
+      .vm-toolbar .vm-toolbar-footer li span {
+        text-align: left;
+        padding-left: 2px;
+        background: #3ea600;
+        position: absolute;
+        width: 58px;
+        height: 36px;
+        line-height: 36px;
+        right: -108px;
+        top: 0;
+        z-index: -1; }
+      .vm-toolbar .vm-toolbar-footer li .ewm-a {
+        position: absolute;
+        z-index: -2;
+        top: -50px;
+        right: -120px;
+        width: 100px;
+        height: 150px;
+        padding-bottom: 2px; }
+        .vm-toolbar .vm-toolbar-footer li .ewm-a img {
+          width: 100px;
+          height: 100px;
+          margin: 10px 0  0; }
+
+.client-a {
+  z-index: 1000;
+  margin-top: -214.5px;
+  margin-left: -660px;
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 45px; }
+  .client-a ul {
+    background: #fff; }
+    .client-a ul li {
+      position: relative;
+      display: block;
+      width: 45px;
+      height: 38px;
+      line-height: 38px;
+      overflow: hidden;
+      border-bottom: 1px dotted #ddd; }
+      .client-a ul li a {
+        display: block;
+        width: 35px;
+        height: 38px;
+        padding: 0 5px;
+        text-align: center;
+        text-decoration: none; }
+        .client-a ul li a b {
+          display: block;
+          width: 24px;
+          padding: 3px 6px;
+          text-align: center;
+          font-size: 12px;
+          font-weight: normal;
+          line-height: 16px; }

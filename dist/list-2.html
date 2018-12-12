@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>瀑布流</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #warp{
+            width: 1100px;
+            margin: 0 auto;
+        }
+        #warp::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #box{
+            width: 220px;
+            float: left;
+            box-shadow: 0 0 5px #000;
+        }
+        #box img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="warp">
+    <div id="box">
+        <img src="http://www.wookmark.com/images/original/671420_wookmark.jpg" alt="">
+        <img src="http://www.wookmark.com/images/original/671428_wookmark.png" alt="">
+    </div>
+    </div>
+    <script src="../my0928/jquery-3.3.1.js"></script>
+    <script>
+        //瀑布流；
+        $.ajax({
+        url:"http://www.wookmark.com/api/json/popular",
+        dataType:"jsonp",
+        data:{page:1}
+        })
+        .then(function(res){
+        console.log(res);
+        })
+    </script>
+</body>
+</html>
