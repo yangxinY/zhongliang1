@@ -77,11 +77,11 @@
         }
 
         //自动播放，就是让js点按钮right
-        var banner_timer=setInterval('$(".right").trigger("click")',1500)
+        var banner_timer=setInterval('$(".right-a").trigger("click")',1500)
 
         //提升用户体验 完善(鼠标移入的时候图片静止)
-        $(".container").hover(function(){
-            clearInterval(banner_timer);
-        },function(){
-            banner_timer=setInterval('$(".right").trigger("click")',1500)
-        })
+        // $(".container").hover(function(){
+        //     clearInterval(banner_timer);
+        // },function(){
+        //     // banner_timer=setInterval('$(".right").trigger("click")',1500)
+        // })

@@ -198,7 +198,7 @@ $(".of-go").on("mouseenter",function(){
     .end()
     .parents(".common-a").siblings(".common-a").find(".frame-a").stop();
     $(this).parents(".common-a").find(".frame-a-1").stop()
-    console.log($(this),$(this).parents(".common-a").find(".frame-a-1"))
+    // console.log($(this),$(this).parents(".common-a").find(".frame-a-1"))
     // console.log($(this),$(this).parents(".common-a").siblings(".common-a"))
 })
 
@@ -232,14 +232,14 @@ $(".of-go-1").on("mouseleave",function(){
 // 每日劲爆品
 var swiper = new Swiper('.swiper-container', {
     autoplay:{
-        delay:1000
+        delay:1500
     },
     loop: true,
-    loopFillGroupWithBlank: true,
-    autoplayDisableOnInteraction: true,
+    // loopFillGroupWithBlank: true,
+    // autoplayDisableOnInteraction: true,
     pagination: {
     el:'.swiper-pagination',
-    clickable: true,
+    // clickable: true,
 
     },
     navigation: {
@@ -249,7 +249,7 @@ var swiper = new Swiper('.swiper-container', {
 });
 swiper.el.onmouseover = function(){
     swiper.autoplay.stop();
-}
+  }
 swiper.el.onmouseout = function(){
     swiper.autoplay.start();
 }
@@ -262,5 +262,14 @@ for(i=0;i<swiper.pagination.bullets.length;i++){
 }
 
 
-// 全球购
-$()
+// 顶部弹出框
+    //绑定滚动条事件
+    $(window).on("scroll",function(){
+        console.log(1)
+        var sTop=$(this).scrollTop();
+        if(sTop>700){
+            $(".top-form").css({
+                "display":"block"
+            })
+        }
+    })
