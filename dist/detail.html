@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>商品详情</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/zhongliang.css">
     <link rel="stylesheet" href="./css/list.css">
+    <link rel="stylesheet" href="./css/detail.css">
     <link rel="stylesheet" href="./public/font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="./public/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.swiper.com.cn/dist/css/swiper.min.css">
 </head>
 <body>
     <!-- 最顶部 -->
-    <div class="sy-top">
+    <!-- <div class="sy-top">
             <div id="top-pho1">
                 <img src="http://pic1.womai.com/upload/backend/2018/11/30/17/1543568519495.jpg" alt="" style="width:1349px">
             </div>
             <div id="top-pho2">
                 <img src="http://pic2.womai.com/upload/backend/2018/11/30/16/1543565149804.jpg" alt="">
             </div>
-    </div>
+    </div> -->
     <!-- nav -->
     <div class="outter-box">        
         <div class="width">
@@ -116,36 +117,109 @@
     </div>
 
 
-    <!-- 商品列表 -->
-    <div class="width">
-        <div class="goods-list">
-            <!-- <div class="goods-detail">
-                <div class="good-image">
-                    <img src="https://s10.mogucdn.com/mlcdn/c45406/181127_03e0d6l4jgdf2fcgg25f1ed6kee2k_588x784.jpg" alt="">
-                </div>           
-                <div class="good-title">
-                    <p>秋冬新款韩版气质小个子宽松茧型呢子大衣中长款西装领纯色毛呢外套女</p>
-                </div>
-                <div class="good-line"></div>
-                <div class="good-box">
-                    <div class="good-price">
-                        <span>￥149</span>
+
+    <!-- 商品详情 -->
+    <div class="goods-content">
+        <div class="con-top">
+            <p class="ct-title">首页>衣服>类别</p>
+        </div>
+        <div class="con-main">
+            <div class="cm-left">
+                <div class="cm-main">
+                    <div class="cm-lt">
+                        <img src="http://img07.jiuxian.com/2017/0714/d3a0d190f33647bcbfcd9e213b976a895.jpg" alt="">
                     </div>
-                    <div class="good-inform">
-                        <i>800</i>
+                    
+                    <div class="frame">
+                        <!-- <img src="http://img07.jiuxian.com/2017/0714/d3a0d190f33647bcbfcd9e213b976a895.jpg" alt=""> -->
                     </div>
+                    
+                    <div class="film"></div>
                 </div>
-                <button id="btn">加入购物车</button>
-            </div> -->
+                <div class="cm-lb">
+                     <ul>
+                        <li class="cm-small" id="small-1"><img src="http://img07.jiuxian.com/2017/0714/a72b25d06a9b4d368b06637b92f64b001.jpg" alt=""></li>
+                        <li class="cm-small" id="small-2"><img src="http://s3.mogucdn.com/mlcdn/c45406/181104_5icab847kjbea3538hk5gei54k9jj_640x960.jpg_320x999.jpg" alt=""></li>
+                        <li class="cm-small" id="small-3"><img src="http://s3.mogucdn.com/mlcdn/c45406/181102_3j6b09gej603ba1428dc3ijh9ge19_640x960.jpg_320x999.jpg" alt=""></li>
+                        <li class="cm-small" id="small-4"><img src="http://s11.mogucdn.com/mlcdn/c45406/181126_772k2ckgg29a81i2k1kclcdddc0ef_640x960.jpg_320x999.jpg" alt=""></li> 
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="cm-right">
+                <div class="bigImg">
+                    <img src="http://img07.jiuxian.com/2017/0714/d3a0d190f33647bcbfcd9e213b976a895.jpg" alt="">
+                </div>
+               <div class="t-props">    
+                     <!--<h3>替换~~~~</h3>                
+                    <h4>替换~~~~</h4>-->
+                </div> 
+                <div class="box-con">
+                    <div class="orgPrice">
+                        <!-- <span class="com-a">原价</span> 
+                        <p>￥10000</p> -->
+                    </div>
+                    <div class="price">
+                        <!--<span class="com-a">现价</span> 
+                         <strong>￥10000</strong> -->
+                    </div>
+                        
+                    <div class="cuxiao">
+                        <div class="left"><span class="com-a">促销</span>
+                        </div>
+                        <div class="right">
+                            <p class="cx-1"><span>限时抢购</span>博龙百搭装</p>
+                            <p class="cx-2"><span>满减</span>店铺满399减10元</p>
+                        </div>
+                    </div>
+
+                    <div class="sum-num">
+                        <!-- <ul class="num-aa">
+                            <li class="s-num s-num1">
+                                <p><i class="fa fa-arrow-circle-up" aria-hidden="true"></i>累计销量
+                                    <span>1234</span>
+                                </p>
+                            </li>
+                            <li class="s-num s-num2">
+                                <p><i class="fa fa-heart" aria-hidden="true"></i>评分<span>1234</span></p>
+                            </li>
+                            <li class="s-num s-num3">
+                                <p><i class="fa fa-money" aria-hidden="true"></i>送金币<span>1234</span></p>
+                            </li>
+                        </ul> -->
+                    </div>
+
+                    <div class="send-a">
+                        <span class="com-a">配送到</span>
+                        <input type="text" placeholder="北京">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>                     
+                    </div>
+
+                    <div class="serve">
+                        <span class="com-a">服务</span>
+                        <p>由<span>我买网</span>负责发货，并提供售后服务</p>
+                    </div>
+
+                    <div class="bot-sum">
+                        <p class="com-a">数量</p>
+                        <input type="text" placeholder="1">
+                        <p>
+                            <i>-</i>
+                            <i>+</i>
+                        </p>
+                    </div>
+
+                    <button id="btn3">加入购物车</button>
+                </div>                                                             
+            </div>
         </div>
     </div>
-   
-    
-    
-    
-    
-    <!-- footer -->
-    <div class="about_wrap">
+
+
+
+
+     <!-- footer -->
+     <div class="about_wrap">
         <div class="width">
             <div class="top-a">
                 <a href="#">关于我们</a>
@@ -176,11 +250,16 @@
             </div>
         </div>
     </div>
+
+
+    
     <script src="./js/jquery-3.3.1.js"></script>
     <script src="https://www.swiper.com.cn/dist/js/swiper.min.js"></script>
+    <script src="./js/jquery.cookie.js"></script>
     <script src="./js/zhongliang.js"></script>
     <script src="./js/lunbo.js"></script>
-    <script src="./js/list.js"></script>
-    <script src="./js/common.js"></script>
+    <!-- <script src="./js/list.js"></script> -->
+    <!-- <script src="./js/common.js"></script> -->
+    <script src="./js/detail.js"></script>
 </body>
 </html>

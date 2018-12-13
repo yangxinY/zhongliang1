@@ -66,7 +66,7 @@ function _slice(args){
 _jsonp("https://list.mogujie.com/search")
 .then(function(res){
     // console.log(res);
-    // console.log(res.result.wall.list);
+    console.log(res.result.wall.list);
     var goodsJSON=res.result.wall.list;
     randomPage(goodsJSON);
     //是不是有了所有的dom结构？
@@ -81,7 +81,7 @@ function randomPage(json){
     json.forEach(function(ele){       
         // console.log(ele);
         html+=`
-            <div class="goods-detail">
+            <div class="goods-detail" data-id=${ele.iid}>
                 <div class="good-image">
                     <img src="${ele.show.img}" width=${ 262 } height=${ parseInt(262 / ele.show.w * ele.show.h)} alt="">
                 </div>           
@@ -184,9 +184,24 @@ function isLoad(){
     //如果参数不存在，就不用执行；
     if(GLOBAL.eleArray==undefined) return false;
     var sh=document.documentElement.scrollHeight;
-    // var ch=document.body.clientHeight||document.documentElement.clientHeight;
     var mh=Math.min.apply(false,GLOBAL.eleArray);
     // console.log(sh,mh,GLOBAL.ch)
     if(sh+GLOBAL.ch>=mh) return true;
     return false;
 }
+
+
+
+//事件委托
+$(".goods-list").on("click","img",function(e){
+    // console.log($(".goods-detail"))
+    var e=e||window.event;
+    var target=e.target||e.srcElement;
+    // console.log(target);
+    var womai=$(target).parent().parent().attr("data-id")
+    // console.log(womai);
+    $.cookie('dataId',womai,{expires:7});//设置cookie;
+    console.log($.cookie("dataId"))
+    location.href="http://localhost:8000/detail.html"
+})
+
