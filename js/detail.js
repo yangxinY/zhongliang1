@@ -1,11 +1,28 @@
 // 放大镜
 ;$(function(){
-    //选择小图改变大图；
-    // $("cm-lb").on("mouseenter","cm-small",function(){
+    //选择小图改变大图
+    // $(".cm-lb").on("mouseenter",".cm-small",function(){
     //     var src=$(this).find("img").attr("src");
     //     $(this).addClass("current").siblings("li").removeClass("current")
-
+    //     $(".cm-lt img").attr("src",src);
+    //     $(".bigImg img").attr("src",src);
     // })
+
+    $(".cm-lb").on("mouseenter","li",function(){
+        var src=$(this).find("img").attr("src");
+        $(this).addClass("aaa").siblings("li").removeClass("aaa");
+        $(this).addClass("aaa").css({
+            "border":"1px solid red"
+        })
+        $(".cm-lt img").attr("src",src);
+        $(".bigImg img").attr("src",src);
+    })
+    $(".cm-lb").on("mouseout","li",function(){
+        $(this).addClass("aaa").siblings("li").removeClass("aaa");
+        $(this).addClass("aaa").css({
+            "border":"none"
+        })
+    })
 
     function Fangda(){};
     $.extend(Fangda.prototype,{
@@ -24,10 +41,12 @@
         showPop(){
             this.frame.css("opacity",".3");
             this.big.css("display","block");
+            this.frame.css("display","block");
         },
         hidePop(){
-            this.frame.css("opcity","0");
+            // this.frame.css("opcity","0");
             this.big.css("display","none");
+            this.frame.css("display","none");
         },
         move(event){
             let e=event||window.event;
@@ -62,83 +81,112 @@
 // // $.cookie("dataId")
 // // console.log($.cookie("dataId"))
 
-// ;$(function(){
-//     function Liuqin(){};
-//     $.extend(Liuqin.prototype,{
-//         init(){
-//             this.renbox=$(".con-main")
-//             this.getData();
-//             this.bindEvent();
-//         },
-//         getData(){
-//             var options={
-//                 url:"https://list.mogujie.com/search",
-//                 type:'GET',
-//                 dataType:"json"
-//             };
-//             $ajax(options)
-//             .then(function(res){
-//                 this.goodslist=res;
-//                 this.renderPage(res);
-//             }.bind(this))
-//         },
-//         renderPage(data){
-//             var cid=$.cookie("dataId");
-//             var bImg="";  
-//             var sImg="";
-//             var aTitle="";
-//             var oPrice="";
-//             var nPrice="";
-//             var aSum="";
-//             for(var i=0;i<data.length;i++){
-//                 if(data[i].cid===cid){
-//                     bImg=`
-//                     <img src="${ele.show.img}" alt="">
-//                     `
-//                     sImg=`
-//                     <ul>
-//                         <li class="cm-small" id="small-1"><img src="${ele.show.img}" alt=""></li>
-                            //  <li class="cm-small" id="small-2"><img src="http://s3.mogucdn.com/mlcdn/c45406/181104_5icab847kjbea3538hk5gei54k9jj_640x960.jpg_320x999.jpg" alt=""></li></li>
-                            //  <li class="cm-small" id="small-3"><img src="http://s3.mogucdn.com/mlcdn/c45406/181102_3j6b09gej603ba1428dc3ijh9ge19_640x960.jpg_320x999.jpg" alt=""></li>
-                            // <li class="cm-small" id="small-4"><img src="http://s11.mogucdn.com/mlcdn/c45406/181126_772k2ckgg29a81i2k1kclcdddc0ef_640x960.jpg_320x999.jpg" alt=""></li>  
-//                     </ul>
-//                     `
-//                     aTitle=`
-//                     <h3>${ele.title}</h3>                
-//                     <h4>${ele.props.split(",")[0]}</h4>
-//                     `
-//                     oPrice=`
-//                     <span class="com-a">原价</span> 
-//                     <p>￥${ele.orgPrice}</p>
-//                     `
-//                     nPrice=`
-//                     <span class="com-a">现价</span> 
-//                     <strong>￥${ele.price}</strong>
-//                     `
-//                     aSum=`
-//                     <ul class="num-aa">
-//                         <li class="s-num s-num1">
-//                             <p><i class="fa fa-arrow-circle-up" aria-hidden="true"></i>累计销量<span>${ele.sale}</span></p>
-//                         </li>
-//                         <li class="s-num s-num2">
-//                             <p><i class="fa fa-heart" aria-hidden="true"></i>评分<span>${ele.itemMarks.split("")[0]}</span></p>
-//                         </li>
-//                         <li class="s-num s-num3">
-//                             <p><i class="fa fa-money" aria-hidden="true"></i>送金币<span>${ele.itemMarks.split("")[2]}</span></p>
-//                         </li>
-//                     </ul>
-//                     `                   
-//                 }
-//             }
-//             $(".cm-lt").html(bImg);
-//             $(".cm-lb").html(sImg);
-//             $(".t-props").html(aTitle);
-//             $(".orgPrice").html(oPrice);
-//             $(".price").html(nPrice);
-//             $(".sum-num").html(aSum);
-//         },
-//         bindEvent(){
+$(function(){
+    function Liuqin(){};
+    $.extend(Liuqin.prototype,{
+        init(){
+            // this.renbox=$(".con-main")
+            this.getData();
+            this.bindEvent();
+        },
+        getData(){
+            var options={
+                url:"https://list.mogujie.com/search",
+                type:'GET',
+                dataType:"jsonp"
+            };
+            $.ajax(options)
+            .then(function(res){
+                console.log(res)
+                this.goodslist=res;
+                var data=res.result.wall.list
+                this.renderPage(data);
+            }.bind(this))
+        },
+        renderPage(data){
+            // console.log(111)
+            var cid=$.cookie("dataId");
+            // console.log(cid)
+            var bImg="";  
+            var sImg="";
+            var aTitle="";
+            var oPrice="";
+            var nPrice="";
+            var aSum="";
+            var bgImg="";
+            for(var i=0;i<data.length;i++){
+                // console.log(data[i].show.img)
+                // console.log(data[i].iid)
+                if(data[i].iid===cid){
+                    // console.log(data[i].show.img)
+                    bImg=`
+                    <img src="${data[i].show.img}" alt="">
+                    `
+                    sImg=`
+                    <ul class="ul-lb">
+                        <li class="cm-small" id="small-1">
+                        <img src="${data[i].show.img}" alt="">
+                        </li>
+                        <li class="cm-small" id="small-2"><img src="http://s3.mogucdn.com/mlcdn/c45406/181104_5icab847kjbea3538hk5gei54k9jj_640x960.jpg_320x999.jpg" alt=""></li></li>
+                        <li class="cm-small" id="small-3"><img src="http://s3.mogucdn.com/mlcdn/c45406/181102_3j6b09gej603ba1428dc3ijh9ge19_640x960.jpg_320x999.jpg" alt=""></li>
+                        <li class="cm-small" id="small-4"><img src="http://s11.mogucdn.com/mlcdn/c45406/181126_772k2ckgg29a81i2k1kclcdddc0ef_640x960.jpg_320x999.jpg" alt=""></li>  
+                    </ul>
+                    `
+                    aTitle=`
+                    <h3>${data[i].title}</h3>                
+                    <h4>${data[i].props}</h4>
+                    `
+                    oPrice=`
+                    <span class="com-a">原价</span> 
+                    <p>${data[i].orgPrice}</p>
+                    `
+                    nPrice=`
+                    <span class="com-a">现价</span> 
+                    <strong>${data[i].price}</strong>
+                    `
+                    aSum=`
+                    <ul class="num-aa">
+                        <li class="s-num s-num1">
+                            <p><i class="fa fa-arrow-circle-up" aria-hidden="true"></i>累计销量<span>${data[i].sale}</span></p>
+                        </li>
+                        <li class="s-num s-num2">
+                            <p><i class="fa fa-heart" aria-hidden="true"></i>评分<span>${data[i].itemMarks}</span></p>
+                        </li>
+                        <li class="s-num s-num3">
+                            <p><i class="fa fa-money" aria-hidden="true"></i>送金币<span>${data[i].itemMarks}</span></p>
+                        </li>
+                    </ul>
+                    `           
+                    bgImg=`
+                        <img src="${data[i].show.img}" alt="">
+                   
+                    ` 
+                }
+            }
+            $(".cm-lt").html(bImg);
+            $(".cm-lb").html(sImg);
+            $(".t-props").html(aTitle);
+            $(".orgPrice").html(oPrice);
+            $(".price").html(nPrice);
+            $(".sum-num").html(aSum);
+            $(".bigImg").html(bgImg);
+        },
+        bindEvent(){
 
-//         }
+        }
+    })
+    new Liuqin().init()
+})
+
+// $(function(){
+//     $(".frame").on("mouseenter",function(){
+//         $(this).css({
+//             "display":"block"
+//         })
+//     })
+//     $(".frame").on("mouseleave",function(){
+//         $(this).css({
+//             "display":"none"
+//         })
 //     })
 // })
