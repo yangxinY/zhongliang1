@@ -25,7 +25,7 @@ function renderCart(){
                             <p class="kg">9.390</p>
                         </div>
                         <div class="ct1 contype5">
-                            <p class="price">￥79.00</p>
+                            <p class="price">${cart_json[i].price}</p>
                         </div>
                         <div class="ct1 contype6">
                             <p class="save">收藏</p>

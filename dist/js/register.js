@@ -10,14 +10,17 @@ $("#quick-reg").on("click",function(){
             password:password
         }
     }).then(function(res){
-        if(res.status == "success"){
-            location.href="http://localhost:8000/login.html"
-        }else{
-            console.log(res)
-        }
-        
-    },(err)=>{
-        console.log("错误",err)
+        location.href="http://localhost:8000/login.html"
     })
+    // }).then(function(res){
+    //     if(res.status == "success"){
+    //         location.href="http://localhost:8000/login.html"
+    //     }else{
+    //         console.log(res)
+    //     }
+        
+    // },(err)=>{
+    //     console.log("错误",err)
+    // })
 })
 

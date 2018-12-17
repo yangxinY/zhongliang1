@@ -243,13 +243,13 @@ $(function(){
 
 
 $(".box-btn").on("click",function(){
-    $(".box-alert").css({
+    $(".box-alert").animate({
         "display":"block"
-    })
+    },300)
 })
-$(".box-alert").on("click",function(){
-    location.href="shopcar.html"
-})
+// $(".box-alert").on("click",function(){
+//     location.href="shopcar.html"
+// })
 
 
 
