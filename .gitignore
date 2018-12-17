@@ -1,2 +1,2 @@
 node_modules/*
-express-ejs/*
+express-ejs/node_modules/*
