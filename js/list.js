@@ -63,11 +63,15 @@ function _slice(args){
      loading_flag:false
  }
 
+ var goodsJSON =[];
+
+
 _jsonp("https://list.mogujie.com/search")
 .then(function(res){
     // console.log(res);
-    console.log(res.result.wall.list);
-    var goodsJSON=res.result.wall.list;
+    // console.log(res.result.wall.list);
+    
+    goodsJSON = res.result.wall.list;
     randomPage(goodsJSON);
     //是不是有了所有的dom结构？
     // console.log(content.children);
@@ -96,8 +100,10 @@ function randomPage(json){
                     <div class="good-inform">
                         <i>★${ele.itemMarks.split(" ")[0]}</i>
                     </div>
-                </div> 
-                <button id="btn">加入购物车</button>          
+                </div>    
+                <div class="box-btnlist">
+                    <button id="btn" data-id=${ele.iid}>加入购物车</button>
+                </div>     
             </div>
         `
     });   
@@ -174,8 +180,8 @@ onscroll=function(){
     _jsonp("https://list.mogujie.com/search")
     .then(function(res){
         GLOBAL.loading_flag=false;
-        var goodsJSON=res.result.wall.list;
-        randomPage(goodsJSON);
+        goodsJSON = goodsJSON.concat(res.result.wall.list);
+        randomPage(res.result.wall.list);
         eleSort(content.children);
     })
 }
@@ -204,4 +210,51 @@ $(".goods-list").on("click","img",function(e){
     console.log($.cookie("dataId"))
     location.href="http://localhost:8000/detail.html"
 })
+
+
+$(".goods-list").on("click","#btn",handleCarClick);
+
+function handleCarClick(event){
+      var e = event || window.event;
+      var target = e.target || e.srcElement;
+      var iid = $(target).attr("data-id");
+      var nowMsg = findJson(iid)[0];
+      console.log(nowMsg)
+      addCar(nowMsg,iid);
+}
+function findJson(iid){
+    return  goodsJSON.filter(function(item){
+          return  item.iid === iid
+    })
+}
+
+
+function addCar(nowMsg , iid){
+    $.extend(nowMsg , {count : 1});
+    var sNowMsg = JSON.stringify(nowMsg);
+    
+    if(!localStorage.cart){
+          localStorage.setItem("cart",`[${sNowMsg}]`);
+          return false;
+    }
+   
+    var aMsg = JSON.parse(localStorage.cart);
+
+    
+    if(!hasIid(aMsg,iid)){
+          aMsg.push(nowMsg);
+    }
+    localStorage.setItem("cart",JSON.stringify(aMsg));
+
+    console.log(JSON.parse(localStorage.cart));
+}
+function hasIid(aMsg,iid){
+    for(var i = 0 ; i < aMsg.length ; i ++){
+          if(aMsg[i].iid === iid){
+                aMsg[i].count ++;
+                return true;
+          }
+    }
+    return false;
+}
 

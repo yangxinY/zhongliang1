@@ -5,8 +5,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/shopcar.css">
+    <link rel="stylesheet" href="./css/reset.css">
 </head>
 <body>
+    <header>
+        <div class="width">
+            <div class="box-top">
+                <p>Hi，欢迎来我买网，<span><a href="#">请登录</a></span>&nbsp;&nbsp;|&nbsp;&nbsp;<i><a href="#">免费注册</a></i>&nbsp;&nbsp;<b><a href="#">我的账户</a></b></p>
+            </div>
+        </div>
+    </header>
+    <div class="logo">
+        <div class="width">
+                <div class="logo-left">
+                    <img src="http://pic1.womai.com/upload/2018/4/25/2018042510164955.png" alt="">
+                </div>
+                <div class="logo-right">
+                    <img src="./img/logo-rg.png" alt="">
+                </div>
+        </div>
+    </div>
+    <div class="local-send">
+        <div class="width">
+            <p class="mineCar">我的购物车</p>
+            <p class="send">送至：<input type="text" placeholder="北京"></p>
+            <p class="goto">继续购物></p>
+        </div>
+    </div>
+
+    <div class="shop_cart">
+        <div class="width">
+            <div class="order_nav">
+                <!-- <p class="order_left">我买网发货单(<span>5</span>)</p> -->
+                <p class="order_left">我买网发货单</p>
+                <p class="order_right">已选商品(含预估运费)：234<span></span></p>
+                <button id="btn"><a href="#">去结算</a></button>
+            </div>
+            <div class="order_line">
+                <div class="odct_title odct_title1">商品</div>
+                <div class="odct_title odct_title2">单价</div>
+                <div class="odct_title odct_title3">数量</div>
+                <div class="odct_title odct_title4">重量</div>
+                <div class="odct_title odct_title5">小计</div>
+                <div class="odct_title odct_title6">操作</div>
+            </div>
+            <!-- <div class="order-title-cw">
+                <div class="title fl">
+                    <input type="checkbox" id="all1"
+                    class="fm1" checked="checked">
+                    <label for="all1">自营常温品</label>
+                </div>
+                <div class="coudan">凑单</div>
+                <div class="tehui">"特惠品"不参与优惠券使用~</div>
+            </div> -->
+            <div class="goodslist">
+                <li class="goods-detail">
+                    <div class="ct1 contype1">
+                        <img src="http://pic1.womai.com/upload/601/603/90900/216060/216062/395503/395503_0_pic60_5503.jpg" alt="">
+                        <p> 【中粮海外直采】Evian依云天然矿泉水1.5L(法国进口 瓶)*6</p>
+                    </div>
+                    <div class="ct1 contype2">￥79.00</div>
+                    <div class="ct1 contype3">
+                        <p class="nq num-a"><a href="">-</a></p>
+                        <p class="num-b">1</p>
+                        <p class="nq num-c"><a href="">+</a></p>
+                    </div>
+                    <div class="ct1 contype4">
+                        <p class="kg">9.390</p>
+                    </div>
+                    <div class="ct1 contype5">
+                        <p class="price">￥79.00</p>
+                    </div>
+                    <div class="ct1 contype6">
+                        <p class="save">收藏</p>
+                        <p class="delete">删除</p>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </div>
+
     
+    <script src="./js/jquery-3.3.1.js"></script>
+    <script src="./js/shopcar.js"></script>
 </body>
 </html>

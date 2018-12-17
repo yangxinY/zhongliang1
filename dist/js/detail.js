@@ -86,25 +86,29 @@ $(function(){
     $.extend(Liuqin.prototype,{
         init(){
             // this.renbox=$(".con-main")
-            this.getData();
-            this.bindEvent();
+            this.goodslist=[];
+            this.getData()
+            .done(function(res){
+                // console.log(res)
+                this.goodslist=res.result.wall.list
+                this.renderPage();
+                this.bindEvent();
+            })
+            
         },
         getData(){
             var options={
                 url:"https://list.mogujie.com/search",
                 type:'GET',
-                dataType:"jsonp"
+                dataType:"jsonp",
+                context:this,
             };
-            $.ajax(options)
-            .then(function(res){
-                console.log(res)
-                this.goodslist=res;
-                var data=res.result.wall.list
-                this.renderPage(data);
-            }.bind(this))
+           return $.ajax(options)
+            
         },
-        renderPage(data){
+        renderPage(){
             // console.log(111)
+            console.log(this.goodslist)
             var cid=$.cookie("dataId");
             // console.log(cid)
             var bImg="";  
@@ -114,18 +118,19 @@ $(function(){
             var nPrice="";
             var aSum="";
             var bgImg="";
-            for(var i=0;i<data.length;i++){
+            var bBtn="";
+            for(var i=0;i<this.goodslist.length;i++){
                 // console.log(data[i].show.img)
                 // console.log(data[i].iid)
-                if(data[i].iid===cid){
+                if(this.goodslist[i].iid==cid){
                     // console.log(data[i].show.img)
                     bImg=`
-                    <img src="${data[i].show.img}" alt="">
+                    <img src="${this.goodslist[i].show.img}" alt="">
                     `
                     sImg=`
                     <ul class="ul-lb">
                         <li class="cm-small" id="small-1">
-                        <img src="${data[i].show.img}" alt="">
+                        <img src="${this.goodslist[i].show.img}" alt="">
                         </li>
                         <li class="cm-small" id="small-2"><img src="http://s3.mogucdn.com/mlcdn/c45406/181104_5icab847kjbea3538hk5gei54k9jj_640x960.jpg_320x999.jpg" alt=""></li></li>
                         <li class="cm-small" id="small-3"><img src="http://s3.mogucdn.com/mlcdn/c45406/181102_3j6b09gej603ba1428dc3ijh9ge19_640x960.jpg_320x999.jpg" alt=""></li>
@@ -133,34 +138,37 @@ $(function(){
                     </ul>
                     `
                     aTitle=`
-                    <h3>${data[i].title}</h3>                
-                    <h4>${data[i].props}</h4>
+                    <h3>${this.goodslist[i].title}</h3>                
+                    <h4>${this.goodslist[i].props}</h4>
                     `
                     oPrice=`
                     <span class="com-a">原价</span> 
-                    <p>${data[i].orgPrice}</p>
+                    <p>${this.goodslist[i].orgPrice}</p>
                     `
                     nPrice=`
                     <span class="com-a">现价</span> 
-                    <strong>${data[i].price}</strong>
+                    <strong>${this.goodslist[i].price}</strong>
                     `
                     aSum=`
                     <ul class="num-aa">
                         <li class="s-num s-num1">
-                            <p><i class="fa fa-arrow-circle-up" aria-hidden="true"></i>累计销量<span>${data[i].sale}</span></p>
+                            <p><i class="fa fa-arrow-circle-up" aria-hidden="true"></i>累计销量<span>${this.goodslist[i].sale}</span></p>
                         </li>
                         <li class="s-num s-num2">
-                            <p><i class="fa fa-heart" aria-hidden="true"></i>评分<span>${data[i].itemMarks}</span></p>
+                            <p><i class="fa fa-heart" aria-hidden="true"></i>评分<span>${this.goodslist[i].itemMarks}</span></p>
                         </li>
                         <li class="s-num s-num3">
-                            <p><i class="fa fa-money" aria-hidden="true"></i>送金币<span>${data[i].itemMarks}</span></p>
+                            <p><i class="fa fa-money" aria-hidden="true"></i>送金币<span>${this.goodslist[i].itemMarks}</span></p>
                         </li>
                     </ul>
                     `           
                     bgImg=`
-                        <img src="${data[i].show.img}" alt="">
+                        <img src="${this.goodslist[i].show.img}" alt="">
                    
                     ` 
+                    bBtn=`
+                        <button data-id=${this.goodslist[i].iid} id="btn3">加入购物车</button>
+                    `
                 }
             }
             $(".cm-lt").html(bImg);
@@ -170,13 +178,90 @@ $(function(){
             $(".price").html(nPrice);
             $(".sum-num").html(aSum);
             $(".bigImg").html(bgImg);
+            $(".box-btn").html(bBtn);
         },
         bindEvent(){
-
-        }
+            $(".box-con .box-btn").on("click","#btn3",this.handleCarClick.bind(this));
+        },
+        handleCarClick(event){
+            var e=event||window.event;
+            var target=e.target||e.srcElement;
+            var iid=$(target).attr("data-id");
+            console.log(iid);
+            var nowMsg=this.findJson(iid)[0];
+            this.addCar(nowMsg,iid);
+            // console.log(nowMsg)
+        },
+        findJson(iid){
+            return  this.goodslist.filter(function(item){
+                return  item.iid === iid
+          })
+        },
+        addCar(nowMsg , iid){
+            // 存数据;
+            // 1. 因为我们要存的数据是对象,但是localstroage可以存储的数据只有字符;
+            // object => string;
+            $.extend(nowMsg , {count : 1});
+            var sNowMsg = JSON.stringify(nowMsg);
+            // console.log(sNowMsg);
+            // 2. 如果直接进行存储的话会导致购物车里只有一个数据。如果要储存多个，那么购物车里的数据应该以数组为数据类型;
+            
+            // 3. 还是覆盖是为什么，因为如果已经有了数据,那么这时候我们会覆盖之前的数据;
+            // 先把结构取出来 查看一下是否存在，如果存在，我就向里面拼接,如果不存在我再建立结构;
+      
+            if(!localStorage.cart){
+                  localStorage.setItem("cart",`[${sNowMsg}]`);
+                  return false;
+            }
+            // 如果存在对结构进行插入;
+      
+            // aMsg 变成数组了; localStorage 字符串转换成数组的数据;
+            var aMsg = JSON.parse(localStorage.cart);
+      
+            // 如果存在数据就不push ， 而是增加 count 值;
+            if(!this.hasIid(aMsg,iid)){
+                  aMsg.push(nowMsg);
+            }
+      
+            //localStorage 重新设置；
+            localStorage.setItem("cart",JSON.stringify(aMsg));
+      
+            // console.log(JSON.parse(localStorage.cart));
+      },
+      hasIid(aMsg,iid){
+            for(var i = 0 ; i < aMsg.length ; i ++){
+                if(aMsg[i].iid === iid){
+                        aMsg[i].count ++;
+                        return true;
+                }
+            }
+            return false;
+    }
     })
     new Liuqin().init()
 })
+
+
+$(".box-btn").on("click",function(){
+    $(".box-alert").css({
+        "display":"block"
+    })
+})
+$(".box-alert").on("click",function(){
+    location.href="shopcar.html"
+})
+
+
+
+
+
+
+
+
+
+
+
+
 
 // $(function(){
 //     $(".frame").on("mouseenter",function(){
@@ -190,3 +275,4 @@ $(function(){
 //         })
 //     })
 // })
+
